@@ -2,6 +2,7 @@ var nodeTodo = angular.module("nodeTodo", []);
 
 function mainController($scope, $http) {
   $scope.formData = {};
+  $scope.status = null;
   //$scope.cos = "Ala ma kota";
 
   // when landing on the page, get all todos and show them
@@ -50,5 +51,13 @@ function mainController($scope, $http) {
       .error(function (data) {
         console.log("Error: " + data);
       });
+  };
+
+  $scope.applySearchFilter = function (done) {
+    $scope.status = done;
+    angular.forEach($scope.todos, function (todo) {
+      if (done === null) todo.excludedByFilter;
+      else todo.excludedByFilter = !todo.done === done;
+    });
   };
 }

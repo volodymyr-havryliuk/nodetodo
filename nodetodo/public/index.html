@@ -50,11 +50,44 @@
         </h1>
       </div>
 
+      <div class="text-center">
+        <ul id="filters" class="list-inline">
+          <li class="list-inline-item">
+            <a
+              ng-class="{'btn btn-primary': status == null} "
+              href="#"
+              ng-click="applySearchFilter()"
+              >All</a
+            >
+          </li>
+          <li class="list-inline-item">
+            <a
+              ng-class="{'btn btn-primary': status == false}"
+              href="#"
+              ng-click="applySearchFilter(false)"
+              >Unfinished</a
+            >
+          </li>
+          <li class="list-inline-item">
+            <a
+              ng-class="{'btn btn-primary': status == true}"
+              href="#"
+              ng-click="applySearchFilter(true)"
+              >Completed</a
+            >
+          </li>
+        </ul>
+      </div>
+
       <!-- TODO LIST -->
       <div id="todo-list" class="row">
         <div class="col-sm-4 col-sm-offset-4">
           <!-- LOOP OVER THE TODOS IN $scope.todos -->
-          <div class="checkbox" ng-repeat="todo in todos">
+          <div
+            class="checkbox"
+            ng-repeat="todo in todos"
+            ng-hide="todo.excludedByFilter"
+          >
             <label>
               <input
                 type="checkbox"
@@ -93,11 +126,11 @@
         </div>
       </div>
 
-      <div id="todo-form" class="row">
+      <!-- <div id="todo-form" class="row">
         <div class="col-sm-8 col-sm-offset-2 text-center">
           <input type="text" class="form-control" ng-model="cos" />
         </div>
-      </div>
+      </div> -->
     </div>
   </body>
 </html>
