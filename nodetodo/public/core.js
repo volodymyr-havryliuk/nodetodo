@@ -20,7 +20,7 @@ function mainController($scope, $http) {
       .success(function (data) {
         $("input").val("");
         $scope.todos = data;
-        $scope.applySearchFilter($scope.status);
+        $scope.completedFilter($scope.status);
       })
       .error(function (data) {
         console.log("Error: " + data);
@@ -34,7 +34,7 @@ function mainController($scope, $http) {
       .put("/api/todos/" + item._id, item)
       .success(function (data) {
         $scope.todos = data;
-        $scope.applySearchFilter($scope.status);
+        $scope.completedFilter($scope.status);
       })
       .error(function (data) {
         console.log("Error: " + data);
@@ -47,14 +47,14 @@ function mainController($scope, $http) {
       .delete("/api/todos/" + id)
       .success(function (data) {
         $scope.todos = data;
-        $scope.applySearchFilter($scope.status);
+        $scope.completedFilter($scope.status);
       })
       .error(function (data) {
         console.log("Error: " + data);
       });
   };
 
-  $scope.applySearchFilter = function (done) {
+  $scope.completedFilter = function (done) {
     console.log($scope.status);
     $scope.status = done;
     angular.forEach($scope.todos, function (todo) {

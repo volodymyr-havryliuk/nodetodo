@@ -56,7 +56,7 @@
             <a
               ng-class="{'btn btn-primary': status == null} "
               href="#"
-              ng-click="applySearchFilter()"
+              ng-click="completedFilter()"
               >All</a
             >
           </li>
@@ -64,7 +64,7 @@
             <a
               ng-class="{'btn btn-primary': status == false}"
               href="#"
-              ng-click="applySearchFilter(false)"
+              ng-click="completedFilter(false)"
               >Unfinished</a
             >
           </li>
@@ -72,7 +72,7 @@
             <a
               ng-class="{'btn btn-primary': status == true}"
               href="#"
-              ng-click="applySearchFilter(true)"
+              ng-click="completedFilter(true)"
               >Completed</a
             >
           </li>
