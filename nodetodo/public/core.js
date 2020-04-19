@@ -58,7 +58,7 @@ function mainController($scope, $http) {
     console.log($scope.status);
     $scope.status = done;
     angular.forEach($scope.todos, function (todo) {
-      if (done === null) todo.excludedByFilter;
+      if (done === null) todo.excludedByFilter = false;
       else todo.excludedByFilter = !todo.done === done;
     });
   };
